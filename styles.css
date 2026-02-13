@@ -12,6 +12,12 @@
   font-size: 14px; 
 } 
 
+.header { 
+  display: grid; 
+  grid-template-columns: 4fr 1fr; 
+  grid-template-rows: 1fr 1fr; 
+} 
+
 .content { 
   background: var(--background-grey); 
   width: 100vw; 
@@ -19,6 +25,8 @@
   display: grid; 
   grid-template-columns: repeat(5, minmax(100px, 1fr)); 
   grid-template-rows: minmax(100px, 1fr) minmax(2rem, 60px) repeat(4, minmax(100px, 1fr)); 
+  position: absolute; 
+  overflow: none; 
 } 
 
 .sidebar {
@@ -34,7 +42,7 @@
 }
 
 .sidebar > div { 
-  display: flex; 
+  display: grid; 
   flex-direction: column; 
   gap: 1rem; 
  } 
@@ -63,16 +71,98 @@ div > div > div > ul > li {
   grid-row: 1 / 2; 
   grid-column: 2 / 6; 
   display: grid; 
-  grid-template-columns: 3fr 2fr; 
-  grid-template-rows: 1fr 1fr; 
+  grid-row-gap: 1rem; 
+  grid-template-columns: 3fr 1fr; 
+  grid-template-rows: 1fr 2fr; 
   box-shadow: 5px 5px 5px #808080; 
 } 
 
-.header > div { 
+.header > .search { 
   display: flex; 
-  justify-content: center; 
+  justify-content: end; 
   align-self: center; 
 }
+
+.header > div > * { /* Targets all direct children of .header */
+  min-width: 0;
+  overflow: none; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+}
+
+.search { 
+  grid-column: 1 / 2; 
+  gap: 0.5rem; 
+} 
+
+#search-bar { 
+  display: flex; 
+  border-radius: 1rem; 
+  flex-basis: 90%; 
+  background-color: var(--background-grey); 
+  border: none; 
+  height: auto;
+  margin-right: 4rem; 
+} 
+
+#search-logo { 
+  height: 2rem; 
+  width: 2rem; 
+} 
+
+.user-info { 
+  grid-column: 2 / 3; 
+  grid-row: 1 / 2;
+  display: flex; 
+  align-items: center; 
+  gap: 2rem; 
+  justify-content: end; 
+  margin-right: 3rem; 
+} 
+
+#logo-lrg { 
+  height: 4rem; 
+  width: 4rem;
+  background-color: var(--yellow-accent); 
+  border-radius: 2rem; 
+} 
+
+.main-info {
+  display: flex;
+  grid-row: 2 / 3; 
+  gap: 2rem; 
+}
+
+#profile-img { 
+  height: 3rem; 
+  width: 3rem;  
+  border-radius: 2rem; 
+  background-color: var(--yellow-accent); 
+}
+
+#user-name { 
+  font-size: 1.5rem; 
+} 
+
+.buttons { 
+  grid-row: 2 / 3; 
+  grid-column: 2/ 3;
+  gap: 1rem; 
+  display: flex; 
+  justify-content: flex-end; 
+  margin-right: 2rem; 
+}
+
+.user-actions { 
+  background-color: var(--side-bar-blue); 
+  border: none;
+  border-radius: 2rem; 
+  width: 80px;
+  height: 36px; 
+  color: var(--white); 
+} 
+
 
 .item { 
   background: white; 
@@ -148,7 +238,7 @@ div > div > div > ul > li {
   grid-column: 2 / 6;  
   display: grid; 
   grid-template-columns: repeat(8, 1fr); 
-  padding: 1rem .5rem; 
+  padding: 1rem 1rem 0 1rem; 
 } 
 
 #announcements-header { 
