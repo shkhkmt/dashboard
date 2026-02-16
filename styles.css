@@ -12,21 +12,14 @@
   font-size: 14px; 
 } 
 
-.header { 
-  display: grid; 
-  grid-template-columns: 4fr 1fr; 
-  grid-template-rows: 1fr 1fr; 
-} 
 
 .content { 
   background: var(--background-grey); 
-  width: 100vw; 
-  height: 100vh; 
+  width: 100%; 
+  height: 100%; 
   display: grid; 
   grid-template-columns: repeat(5, minmax(100px, 1fr)); 
   grid-template-rows: minmax(100px, 1fr) minmax(2rem, 60px) repeat(4, minmax(100px, 1fr)); 
-  position: absolute; 
-  overflow: none; 
 } 
 
 .sidebar {
@@ -43,7 +36,6 @@
 
 .sidebar > div { 
   display: grid; 
-  flex-direction: column; 
   gap: 1rem; 
  } 
 
@@ -53,7 +45,7 @@
 }
 
 .nav > h1 { 
-  font-size: 2rem; 
+  font-size: 2rem;  
   font-weight: 700; 
   margin: 0.5rem 1rem; 
   display: flex; 
@@ -91,40 +83,28 @@ div > div > div > ul > li {
 }
 
 .header { 
-  margin: 1rem; 
+  margin: 2rem; 
   padding: 1rem; 
-  height: clamp(140px, 12rem, 1fr);
   border-radius: 1rem; 
   background: var(--white); 
   grid-row: 1 / 2; 
   grid-column: 2 / 6; 
   display: grid; 
-  grid-row-gap: 1rem; 
-  grid-template-columns: 3fr 1fr; 
+  grid-template-columns: 2fr 1fr; 
   grid-template-rows: 1fr 2fr; 
   box-shadow: 5px 5px 5px #808080; 
 } 
 
 .header > .search { 
-  display: grid; 
-  grid-template-columns: 0.1fr 6fr;
-  justify-content: end; 
+  display: flex; 
   align-self: center; 
-  grid-column: 1 / 2; 
   gap: 0.5rem; 
 }
 
 .header > div > * { /* Targets all direct children of .header */
-  min-width: 0;
-  overflow: none; 
   display: flex; 
   flex-direction: column; 
   justify-content: center; 
-}
-
-.header > div > div > * { 
-  display: flex; 
-  flex-direction: column: 
 }
 
 #main-container { 
@@ -176,6 +156,7 @@ div > div > div > ul > li {
   display: flex;
   grid-row: 2 / 3; 
   gap: 2rem; 
+  align-items: center; 
 }
 
 #profile-img { 
@@ -185,18 +166,15 @@ div > div > div > ul > li {
   background-color: var(--yellow-accent); 
 }
 
-#user-name { 
-  font-size: auto; 
-} 
 
 .buttons { 
   grid-row: 2 / 3; 
   grid-column: 2/ 3;
   gap: 1rem; 
-  display: grid; 
+  display: flex; 
   margin-right: 2rem;
-  grid-template-columns: 1fr 1fr 1fr; 
   justify-content: center; 
+  align-items: center; 
 }
 
 .user-actions { 
@@ -223,6 +201,7 @@ div > div > div > ul > li {
   box-shadow: 5px 5px 5px #808080; 
   display: flex; 
   flex-direction: column;   
+  margin: 1rem; 
 } 
 
 .main { 
@@ -240,12 +219,19 @@ div > div > div > ul > li {
   display: grid; 
   grid-template-columns: repeat(2, minmax(50px, 1fr)); 
   gap: 2rem; 
-  overflow-y: scroll; 
+  margin: 1rem; 
 }
 
 .projects > div { 
   box-shadow: 5px 5px 5px #808080; 
 } 
+
+.project-logos { 
+  display: flex; 
+  justify-content: flex-end;
+  margin-top: 4rem;
+  gap: 0.5rem;  
+}
 
 .info { 
   gap: 1rem; 
